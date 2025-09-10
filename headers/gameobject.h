@@ -23,29 +23,22 @@ enum class ObjectType {
 struct GameObject {
     ObjectType type;
     ObjectData data;
-    glm::vec2 pos, vel, acc;
+    glm::vec2 pos;
     float dir;
     float maxSpeedX;
     std::vector<Animation> animations;
     int curAnimation;
     SDL_Texture *texture;
-    bool dynamic;
-    bool grounded;
     SDL_FRect collider; // rectangle for collision
-    Timer flashTimer;
-    bool shouldFlash;
     int spriteFrame;
-    GameObject() : data{.level = LevelData()}, collider{ 0 }, flashTimer(0.05f)
+    GameObject() : data{.level = LevelData()}, collider{ 0 }
     {
         type = ObjectType::level;
         dir = 1;
         maxSpeedX = 0;
-        pos = vel = acc = glm::vec2(0);
+        pos = glm::vec2(0);
         curAnimation = -1;
-        texture = nullptr;
-        dynamic = false;
-        grounded = false;
-        shouldFlash = false;   
+        texture = nullptr; 
         spriteFrame = 1;
     }
 };
