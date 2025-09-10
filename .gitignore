@@ -1,0 +1,9 @@
+# .gitignore
+
+ext/
+*.exe
+*.dll
+.vscode
+/Makefile
+**/Makefile
+Makefile
